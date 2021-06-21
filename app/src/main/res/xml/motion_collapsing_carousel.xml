@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        app:constraintSetEnd="@id/collapsed"
+        app:constraintSetStart="@id/expand">
+
+        <OnSwipe
+            app:dragDirection="dragUp"
+            app:touchAnchorId="@+id/rv_carousel" />
+
+    </Transition>
+
+    <ConstraintSet android:id="@+id/expand">
+
+        <Constraint
+            android:id="@+id/vp_carousel"
+            android:layout_width="0dp"
+            android:layout_height="220dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Constraint
+            android:id="@+id/tl_indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/vp_carousel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:tabGravity="center"
+            app:tabIndicatorHeight="0dp" />
+
+        <Constraint
+            android:id="@+id/cl_main"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            app:layout_constraintTop_toBottomOf="@id/tl_indicator">
+            <CustomAttribute
+                app:attributeName="backgroundColor"
+                app:customColorValue="@android:color/darker_gray" />
+        </Constraint>
+
+
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/collapsed">
+
+        <Constraint
+            android:id="@+id/vp_carousel"
+            android:layout_width="0dp"
+            android:layout_height="220dp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Constraint
+            android:id="@+id/tl_indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/vp_carousel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Constraint
+            android:id="@+id/cl_main"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            app:layout_constraintTop_toBottomOf="@id/tl_indicator">
+
+            <CustomAttribute
+                app:attributeName="backgroundColor"
+                app:customColorValue="@color/purple_700" />
+        </Constraint>
+
+    </ConstraintSet>
+</MotionScene>
